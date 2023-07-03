@@ -1,1 +1,4292 @@
-{"swagger":"2.0","info":{"version":"V1.0","title":"智能外呼引擎服务","contact":{"name":"石正福","url":"http://www.sinovoice.com","email":"shizhengfu@sinovoice.com.cn"}},"host":"10.0.7.161:19062","basePath":"/","tags":[{"name":"ASR服务测试模块","description":"Asr Trans Test Controller"},{"name":"NLP服务测试模块","description":"Nlp Test Controller"},{"name":"NLU10e服务模块","description":"Nlu Train Test Controller"},{"name":"NLU服务测试模块","description":"Nlu Test Controller"},{"name":"TA服务测试模块","description":"TA Test Controller"},{"name":"TTS服务测试模块","description":"TTS Test Controller"},{"name":"freeTalk服务模块","description":"Free Talk Test Controller"},{"name":"ros服务测试模块","description":"Ros Test Controller"},{"name":"外呼引擎任务模块","description":"Task Detail Controller"},{"name":"洗号服务测试模块","description":"Ring Test Controller"}],"paths":{"/freeTalk/recognition":{"get":{"tags":["freeTalk服务模块"],"summary":"识别结果","operationId":"docSplitUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/aapc":{"post":{"tags":["NLP服务测试模块"],"summary":"标准话术检查接口","operationId":"docSplitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/AapcParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/classify":{"post":{"tags":["NLP服务测试模块"],"summary":"文本分类","operationId":"classifyUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/ClassifyParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/keywords":{"post":{"tags":["NLP服务测试模块"],"summary":"关键词提取","operationId":"keywordsUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/KeywordsParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/lexicalAnalysis":{"post":{"tags":["NLP服务测试模块"],"summary":"词法分析","operationId":"lexicalAnalysisUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/LexicalAnalysisParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/ner":{"post":{"tags":["NLP服务测试模块"],"summary":"通话主题分析","operationId":"lexicalAnalysisUsingPOST_1","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/NerParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/sentiment":{"post":{"tags":["NLP服务测试模块"],"summary":"情感分析","operationId":"analyzeAsmUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/AsmParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/summarize":{"post":{"tags":["NLP服务测试模块"],"summary":"文本摘要","operationId":"summarizeUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/SummarizeParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/topicAnalysis":{"post":{"tags":["NLP服务测试模块"],"summary":"主题分析","operationId":"topicAnalysisUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/TopicAnalysisParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/userFeature":{"post":{"tags":["NLP服务测试模块"],"summary":"用户特征提取","operationId":"userFeatureUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/UserFeatureParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlp-10e-test/wordSemanticMining":{"post":{"tags":["NLP服务测试模块"],"summary":"词语义挖掘","operationId":"wordSemanticMiningUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/WordSemanticMiningParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/confusionCheck":{"post":{"tags":["NLU10e服务模块"],"summary":"发起知识库混淆判断任务","operationId":"confusionCheckUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/ConfusionCheckParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/confusionCheck/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"根据taskId查询混淆任务进度","operationId":"confusionCheckByTaskIdUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false},"delete":{"tags":["NLU10e服务模块"],"summary":"根据taskId查询混淆任务进度","operationId":"confusionCheckDeleteUsingDELETE","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/confusion_search/create":{"post":{"tags":["NLU10e服务模块"],"summary":"实时混淆检查-创建任务","operationId":"confusionSearchCreateUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/ConfusionSearchCreateParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/confusion_search/query":{"post":{"tags":["NLU10e服务模块"],"summary":"实时混淆检查-结果查询","operationId":"confusionSearchQueryUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/ConfusionSearchQueryParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/data_mining":{"post":{"tags":["NLU10e服务模块"],"summary":"发起知识挖掘任务","operationId":"dataMiningInitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/DataMiningInitParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/data_mining/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"知识挖掘-查询结果","operationId":"dataMingQueryUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/doc_reader":{"post":{"tags":["NLU10e服务模块"],"summary":"文档问答","operationId":"docReaderUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/DocReaderInitParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/doc_reader_init":{"post":{"tags":["NLU10e服务模块"],"summary":"发起文档问答","operationId":"docReaderInitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/DocReaderInitParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/doc_to_qa":{"post":{"tags":["NLU10e服务模块"],"summary":"文档拆分","operationId":"docSplitUsingPOST_1","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/DocSplitParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/doc_to_qa/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"文档拆分查询","operationId":"docQueryUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/generate_question":{"post":{"tags":["NLU10e服务模块"],"summary":"生成扩展问-发起任务","operationId":"generateQuestInitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/GenerateQuestInitParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/generate_question/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"生成扩展问-查询结果","operationId":"generateQuestQueryUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false},"delete":{"tags":["NLU10e服务模块"],"summary":"生成扩展问-清除任务","operationId":"generateQuestDelUsingDELETE","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/license/token":{"get":{"tags":["NLU10e服务模块"],"summary":"授权服务-获取token","operationId":"tokenUsingGET","produces":["application/json"],"parameters":[{"name":"appkey","in":"query","description":"appkey","required":false,"type":"string"},{"name":"secret","in":"query","description":"secret","required":false,"type":"string"},{"name":"url","in":"query","description":"url","required":false,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/model_eval/create":{"post":{"tags":["NLU10e服务模块"],"summary":"语义模型效果评估-任务创建","operationId":"modelEvalCreateUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/ModelEvalCreateParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/model_eval/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"语义模型效果评估-任务结果查询","operationId":"modelEvalQueryUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false},"delete":{"tags":["NLU10e服务模块"],"summary":"语义模型效果评估-任务终止","operationId":"modelEvalDelUsingDELETE","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/model_train":{"post":{"tags":["NLU10e服务模块"],"summary":"模型训练-发起任务","operationId":"modelTrainInitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/ModelTrainInitParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/model_train/{taskId}":{"get":{"tags":["NLU10e服务模块"],"summary":"模型训练-查询结果","operationId":"modelTrainQueryUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false},"delete":{"tags":["NLU10e服务模块"],"summary":"模型训练-取消任务","operationId":"modelTrainDelUsingDELETE","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/question_search/init":{"post":{"tags":["NLU10e服务模块"],"summary":"实时挖掘扩展问-发起任务","operationId":"questSearchInitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/QuestSearchInitParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlu-103-test/question_search/query":{"post":{"tags":["NLU10e服务模块"],"summary":"生成扩展问-查询结果","operationId":"questSearchQueryUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/QuestSearchQueryParam"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlutest/recognize":{"post":{"tags":["NLU服务测试模块"],"summary":"问答接口","operationId":"recognizeUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"question","description":"question","required":true,"schema":{"type":"string"}},{"name":"robotid","in":"query","description":"robotid","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/nlutest/tempRecognize":{"post":{"tags":["NLU服务测试模块"],"summary":"临时问答接口","operationId":"tempRecognizeUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"domain","in":"query","description":"domain","required":true,"type":"string"},{"in":"body","name":"question","description":"question","required":true,"schema":{"type":"string"}},{"name":"sid","in":"query","description":"sid","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/ring/test/audio/formats":{"get":{"tags":["洗号服务测试模块"],"summary":"获取洗号服务模型特征串信息","operationId":"getAudioFormatsUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/ring/test/propertys":{"get":{"tags":["洗号服务测试模块"],"summary":"获取洗号服务模型特征串信息","operationId":"getRingPropertyInfosUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/rosTest/add":{"post":{"tags":["ros服务测试模块"],"summary":"添加资源","operationId":"addResourceUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/RosResourceParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/rosTest/delete":{"delete":{"tags":["ros服务测试模块"],"summary":"删除资源","operationId":"deleteResourceUsingDELETE","produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/RosResourceParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/rosTest/update":{"put":{"tags":["ros服务测试模块"],"summary":"修改资源","operationId":"updateResourceUsingPUT","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"param","description":"param","required":true,"schema":{"$ref":"#/definitions/RosResourceParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/task/clean":{"post":{"tags":["外呼引擎任务模块"],"summary":"外呼任务清理","operationId":"taskCleanUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TaskDetailSearchParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/task/end/{orgCode}/{callId}":{"post":{"tags":["外呼引擎任务模块"],"summary":"外呼任务结束","operationId":"taskEndUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"callId","in":"path","description":"callId","required":true,"type":"string"},{"name":"orgCode","in":"path","description":"orgCode","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/task/search":{"post":{"tags":["外呼引擎任务模块"],"summary":"外呼任务查询","operationId":"taskSearchUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TaskDetailSearchParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/task/submit":{"post":{"tags":["外呼引擎任务模块"],"summary":"外呼任务提交","operationId":"taskSubmitUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TaskDetailParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/task/transfer":{"post":{"tags":["外呼引擎任务模块"],"summary":"外呼任务转人工","operationId":"taskTransferUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TaskDetailTransferParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/aapc":{"post":{"tags":["TA服务测试模块"],"summary":"标准话术检测","operationId":"checkAapcUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/aapc/analyze":{"post":{"tags":["TA服务测试模块"],"summary":"标准话术识别","operationId":"analyzeAapcUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}},{"name":"resourceIds","in":"query","description":"resourceIds","required":true,"type":"array","items":{"type":"string"},"collectionFormat":"multi"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/acc/analyze":{"post":{"tags":["TA服务测试模块"],"summary":"通话分类识别","operationId":"analyzeAccUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TAACCRequestParams"}},{"name":"resourceId","in":"query","description":"resourceId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/addResource":{"post":{"tags":["TA服务测试模块"],"summary":"添加资源[aapc_model:标准话术检查模型；aer_model:规则质检模型；acc_model:通话分类模型；usr_dict:用户词库；stop_word:停用词；male_kw:男性关键词；female_kw:女性关键词；age_kw:年龄问题匹配关键词；corpus:通话语料；acc_train_model:ACC训练模型","operationId":"addResourceUsingPOST_1","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/AddResourceParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/addTestTask":{"post":{"tags":["TA服务测试模块"],"summary":"添加测试任务","operationId":"addTestTaskUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"addTestTaskParams","description":"addTestTaskParams","required":true,"schema":{"$ref":"#/definitions/AddTestTaskParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/addTrainTask":{"post":{"tags":["TA服务测试模块"],"summary":"添加训练任务","operationId":"addTrainTaskUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"addTrainTaskParams","description":"addTrainTaskParams","required":true,"schema":{"$ref":"#/definitions/AddTrainTaskParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/aer":{"post":{"tags":["TA服务测试模块"],"summary":"质检模型检测","operationId":"checkAerUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/aer/analyze":{"post":{"tags":["TA服务测试模块"],"summary":"质检模型识别","operationId":"analyzeAerUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}},{"name":"resourceIds","in":"query","description":"resourceIds","required":true,"type":"array","items":{"type":"string"},"collectionFormat":"multi"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/analyzeAtpp":{"post":{"tags":["TA服务测试模块"],"summary":"文本预处理","operationId":"analyzeAtppUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"procMode","in":"query","description":"procMode","required":true,"type":"integer","format":"int32"},{"name":"resourceId","in":"query","description":"resourceId","required":true,"type":"string"},{"in":"body","name":"textContents","description":"textContents","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/asm/analyze":{"post":{"tags":["TA服务测试模块"],"summary":"情感分析","operationId":"analyzeAsmUsingPOST_1","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"contents","description":"contents","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/ats":{"post":{"tags":["TA服务测试模块"],"summary":"文本摘要","operationId":"analyzeAtsUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"contents","in":"query","description":"contents","required":true,"type":"array","items":{"type":"string"},"collectionFormat":"multi"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/aufe/analyze":{"post":{"tags":["TA服务测试模块"],"summary":"用户特征提取","operationId":"analyzeAufeUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"ageKw","in":"query","description":"ageKw","required":true,"type":"string"},{"name":"contents","in":"query","description":"contents","required":true,"type":"string"},{"name":"femaleKw","in":"query","description":"femaleKw","required":true,"type":"string"},{"name":"maleKw","in":"query","description":"maleKw","required":true,"type":"string"},{"name":"year","in":"query","description":"year","required":true,"type":"integer","format":"int32"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/clustering":{"post":{"tags":["TA服务测试模块"],"summary":"通话主题分析（聚类）","operationId":"clusteringUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"actNumCluster","in":"query","description":"actNumCluster","required":true,"type":"integer","format":"int32"},{"name":"actNumKeyword","in":"query","description":"actNumKeyword","required":true,"type":"integer","format":"int32"},{"in":"body","name":"contents","description":"contents","required":true,"schema":{"type":"array","items":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/delete/{resourceId}":{"delete":{"tags":["TA服务测试模块"],"summary":"删除资源","operationId":"deleteResourceUsingDELETE_1","produces":["application/json"],"parameters":[{"name":"resourceId","in":"path","description":"resourceId","required":true,"type":"string"},{"name":"version","in":"query","description":"version","required":false,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/deleteTrainTask":{"post":{"tags":["TA服务测试模块"],"summary":"删除训练任务","operationId":"deleteTrainTaskUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"trainNo","description":"trainNo","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/detail/{resourceId}":{"get":{"tags":["TA服务测试模块"],"summary":"获取资源详细信息","operationId":"downloadResourceUsingGET","produces":["application/json"],"parameters":[{"name":"resourceId","in":"path","description":"resourceId","required":true,"type":"string"},{"name":"version","in":"query","description":"version","required":false,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/info/{resourceId}":{"get":{"tags":["TA服务测试模块"],"summary":"获取资源元信息","operationId":"getResourceInfoUsingGET","produces":["application/json"],"parameters":[{"name":"resourceId","in":"path","description":"resourceId","required":true,"type":"string"},{"name":"version","in":"query","description":"version","required":false,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/keywordAnalysis":{"post":{"tags":["TA服务测试模块"],"summary":"关键词分析","operationId":"keywordAnalysisUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"akeKpNum","in":"query","description":"akeKpNum","required":true,"type":"integer","format":"int32"},{"name":"akeKwNum","in":"query","description":"akeKwNum","required":true,"type":"integer","format":"int32"},{"name":"stopWordResourceId","in":"query","description":"stopWordResourceId","required":true,"type":"string"},{"in":"body","name":"textWords","description":"textWords","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/searchNewWord":{"post":{"tags":["TA服务测试模块"],"summary":"新词发现功能(同步识别)","operationId":"searchNewWordUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"maxWordLength","in":"query","description":"maxWordLength","required":true,"type":"integer","format":"int32"},{"in":"body","name":"text","description":"text","required":true,"schema":{"type":"array","items":{"type":"string"}}},{"name":"userWordResourceId","in":"query","description":"userWordResourceId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/searchTestTask":{"get":{"tags":["TA服务测试模块"],"summary":"查询测试任务","operationId":"searchTestTaskUsingGET","produces":["application/json"],"parameters":[{"name":"test_no","in":"query","description":"test_no","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/searchTrainTask":{"get":{"tags":["TA服务测试模块"],"summary":"查询训练任务状态","operationId":"searchTrainTaskUsingGET","produces":["application/json"],"parameters":[{"name":"train_no","in":"query","description":"train_no","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/update/{resourceId}":{"put":{"tags":["TA服务测试模块"],"summary":"更新资源","operationId":"updateResourceUsingPUT_1","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}},{"name":"resourceId","in":"path","description":"resourceId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/wordsAssociate":{"post":{"tags":["TA服务测试模块"],"summary":"词联想功能","operationId":"wordsAssociateUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"awsmKeyword","in":"query","description":"awsmKeyword","required":true,"type":"string"},{"name":"numLayers","in":"query","description":"numLayers","required":true,"type":"integer","format":"int32"},{"name":"numWpl","in":"query","description":"numWpl","required":true,"type":"integer","format":"int32"},{"in":"body","name":"text","description":"text","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tatest/{type}/add":{"post":{"tags":["TA服务测试模块"],"summary":"添加资源[aapc_model:标准话术检查模型；aer_model:规则质检模型；acc_model:通话分类模型；usr_dict:用户词库；stop_word:停用词；male_kw:男性关键词；female_kw:女性关键词；age_kw:年龄问题匹配关键词；corpus:通话语料；acc_train_model:ACC训练模型","operationId":"addResourceUsingPOST_2","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"content","description":"content","required":true,"schema":{"type":"string"}},{"name":"type","in":"path","description":"type","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/callback":{"post":{"tags":["ASR服务测试模块"],"summary":"3.9 回调通知9x","operationId":"callbackUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/ASR9xTransCallbackParams"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/callback10c":{"get":{"tags":["ASR服务测试模块"],"summary":"3.8 回调通知10c","operationId":"callBackUsingGET","produces":["application/json"],"parameters":[{"name":"save_status","in":"query","description":"save_status","required":false,"type":"string"},{"name":"task","in":"query","description":"task","required":false,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/cancelTask":{"get":{"tags":["ASR服务测试模块"],"summary":"3.4 任务取消","operationId":"cancelTaskUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/download":{"get":{"tags":["ASR服务测试模块"],"summary":"3.5 结果下载","operationId":"downloadUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/listProperties":{"get":{"tags":["ASR服务测试模块"],"summary":"3.1 模型查询","operationId":"listPropertiesUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/queryStatus":{"get":{"tags":["ASR服务测试模块"],"summary":"3.6 队列状态","operationId":"queryStatusUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/queryTask/{taskId}":{"get":{"tags":["ASR服务测试模块"],"summary":"3.3 任务查询","operationId":"queryTaskUsingGET","produces":["application/json"],"parameters":[{"name":"taskId","in":"path","description":"taskId","required":true,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/restartTask":{"get":{"tags":["ASR服务测试模块"],"summary":"3.7 重启任务","operationId":"restartTaskUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/trans/test/submitTask":{"post":{"tags":["ASR服务测试模块"],"summary":"3.2 任务提交","operationId":"submitTaskUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"testRequest","description":"testRequest","required":true,"schema":{"type":"object"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tts/test/propertys":{"get":{"tags":["TTS服务测试模块"],"summary":"获取TTS模型特征串信息","operationId":"getTTSPropertyInfosUsingGET","produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Rest结果"}}},"deprecated":false}},"/tts/test/{accessToken}":{"post":{"tags":["TTS服务测试模块"],"summary":"提交合成TTS内容[wav格式]","operationId":"submitTextTestUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"name":"accessToken","in":"path","description":"accessToken","required":true,"type":"string"},{"in":"body","name":"config","description":"config","required":true,"schema":{"$ref":"#/definitions/TTSConfig"}},{"in":"body","name":"params","description":"params","required":true,"schema":{"$ref":"#/definitions/TTSParams"}}],"responses":{"200":{"description":"OK"}},"deprecated":false}}},"definitions":{"ASR9xTransCallbackParams":{"type":"object","properties":{"failed_count":{"type":"integer","format":"int32"},"finished_count":{"type":"integer","format":"int32"},"res_code":{"type":"string"},"res_msg":{"type":"string"},"status_list":{"type":"array","items":{"type":"object"}},"succeeded_count":{"type":"integer","format":"int32"},"task_no":{"type":"string"},"total_count":{"type":"integer","format":"int32"}},"title":"ASR9xTransCallbackParams"},"AapcConfig":{"type":"object","properties":{"actlabelId":{"type":"string","description":"参数集"},"call":{"description":"模式参数","$ref":"#/definitions/Call"},"clusterEfficient":{"type":"number","format":"float","description":"聚类系数参数，取值 [0, 1]"},"detail":{"type":"boolean","description":"输出结果中是否包含对应的原始文本内容"},"mode":{"type":"string","description":"参数集"},"profile":{"type":"string","description":"参数集"},"sentence":{"description":"模式参数","$ref":"#/definitions/Sentence"},"similarThreshold":{"type":"number","format":"float","description":"相似度阈值参数，取值 [0, 1]"},"stopwordId":{"type":"string","description":"参数集"},"trickIds":{"type":"array","description":"话术ID 列表","items":{"type":"string"}}},"title":"AapcConfig","description":"配置信息"},"AapcParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/AapcConfig"},"extraInfo":{"type":"string","description":"客户端信息串"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"AapcParams","description":"标准话术检查"},"AddResourceParams":{"type":"object","properties":{"compress":{"type":"string"},"crc64":{"type":"string"},"data":{"type":"string"},"dataUrl":{"type":"string"},"type":{"type":"string"}},"title":"AddResourceParams"},"AddTestTaskParams":{"type":"object","properties":{"enable_notify":{"type":"boolean"},"notify_url":{"type":"string"},"test_data":{"type":"array","items":{"$ref":"#/definitions/TestData"}},"thresholds":{"type":"number","format":"double"},"train_no":{"type":"string"}},"title":"AddTestTaskParams"},"AddTrainTaskParams":{"type":"object","properties":{"enable_notify":{"type":"boolean"},"notify_url":{"type":"string"},"num_train_epochs":{"type":"integer","format":"int32"},"train_data_url":{"type":"string"}},"title":"AddTrainTaskParams"},"AsmParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"extraInfo":{"type":"string","description":"客户端信息串"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"AsmParams","description":"情感分析接口"},"Call":{"type":"object","properties":{"keywordsNum":{"type":"integer","format":"int32","description":"输出结果中是否包含对应的原始文本内容"}},"title":"Call"},"ClassifyParams":{"type":"object","properties":{"extraInfo":{"type":"string","description":"客户端设置的信息串，服务器端只做记录，\n可将来作为定制版本的一些特殊信息"},"text":{"type":"string","description":"待分析的文本，长度在1000字符以内，如果超出此限制，只检测前1000个字符。\n必须以UTF-8格式编码"},"xtenantID":{"type":"string"}},"title":"ClassifyParams","description":"文本分类"},"Config":{"type":"object","properties":{"batchSize":{"type":"integer","format":"int32","description":"计算batch大小，取值[1, +∞)，默认32"},"docBufferLength":{"type":"integer","format":"int32"},"kbmining":{"description":"挖掘扩展问相关配置","$ref":"#/definitions/KbMining"},"kmeans":{"description":"挖掘扩展问相关配置","$ref":"#/definitions/Kmeans"},"maxAnswerLength":{"type":"integer","format":"int32"},"maxKeepThreshold":{"type":"number","format":"float","description":"挖掘扩展问的相似度上限，取值(0,1]，默认值0.99"},"maxResultCount":{"type":"integer","format":"int64","description":"挖掘扩展问数量上限，取值[0,+∞)"},"minKeepThreshold":{"type":"number","format":"float","description":"挖掘扩展问的相似度下限，取值(0,1]"},"modelPath":{"type":"string","description":"模型目录路径，缺省为空，表示使用系统默认"},"nbest":{"type":"integer","format":"int32"},"notifyUrl":{"type":"string","description":"回调地址"},"overlook":{"description":"忽略问题相关配置","$ref":"#/definitions/Overlook"},"sessionId":{"type":"string","description":"会话id"},"threshold":{"type":"number","format":"float","description":"相似度的最小阈值，取值[0.8, 1.0]，默认0.9"},"topBeams":{"type":"integer","format":"int32","description":"每个标准问生成的扩展问最大个数，取值[1,+∞)，缺省30"},"topN":{"type":"integer","format":"int32","description":"返回结果数量上限"},"weightPath":{"type":"string","description":"权重文件路径，为空表示使用系统默认"}},"title":"Config"},"ConfusionCheckParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"kbPath":{"type":"string","description":"混淆判断用的知识库文件"},"modelPath":{"type":"string","description":"模型所在目录路径"},"taskId":{"type":"string","description":"任务uid"},"xtenantID":{"type":"string"}},"title":"ConfusionCheckParam"},"ConfusionSearchCreateParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"kbPath":{"type":"string","description":"知识库文件路径"},"modelPath":{"type":"string","description":"模型文件路径"},"xtenantID":{"type":"string"}},"title":"ConfusionSearchCreateParam"},"ConfusionSearchQueryParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"query":{"type":"string","description":"输入的问题"},"sessionId":{"type":"string","description":"会话id"},"xtenantID":{"type":"string"}},"title":"ConfusionSearchQueryParam"},"DataMiningInitParams":{"type":"object","properties":{"config":{"description":"配置","$ref":"#/definitions/Config"},"kbPath":{"type":"string","description":"当前知识库文件mjsn文件"},"overlookPath":{"type":"string","description":"忽略问题txt文件"},"recordsPath":{"type":"string","description":"对话记录txt文件"},"taskId":{"type":"string","description":"任务id"},"xtenantID":{"type":"string"}},"title":"DataMiningInitParams"},"DocReaderInitParams":{"type":"object","properties":{"config":{"$ref":"#/definitions/Config"},"path":{"type":"string"},"query":{"type":"string"},"sessionId":{"type":"string"},"type":{"type":"string"},"xtenantID":{"type":"string"}},"title":"DocReaderInitParams"},"DocSplitParams":{"type":"object","properties":{"config":{"$ref":"#/definitions/Config"},"path":{"type":"string"},"taskId":{"type":"string"},"type":{"type":"string"},"xtenantID":{"type":"string"}},"title":"DocSplitParams"},"GatewayParams":{"type":"object","properties":{"ip":{"type":"string","description":"网关ip"},"name":{"type":"string","description":"网关名称"},"port":{"type":"integer","format":"int32","description":"网关端口"}},"title":"GatewayParams","description":"网关参数"},"GenerateQuestInitParams":{"type":"object","properties":{"config":{"description":"配置","$ref":"#/definitions/Config"},"questions":{"type":"array","description":"需要生成扩展问的标准问","items":{"type":"string"}},"taskId":{"type":"string","description":"任务id"},"xtenantID":{"type":"string"}},"title":"GenerateQuestInitParams"},"KbMining":{"type":"object","properties":{"discardThreshold":{"type":"number","format":"float","description":"挖掘扩展问的相似度上限，取值(0,1]"},"maxKeepThreshold":{"type":"number","format":"float","description":"挖掘扩展问的抛弃相似度下限，取值(0,1]"},"minKeepCount":{"type":"integer","format":"int32","description":"挖掘问题高于此数量才会被保留，取值[1,+)"},"minKeepThreshold":{"type":"number","format":"float","description":"挖掘扩展问的相似度下限，取值(0,1]"}},"title":"KbMining"},"KeywordsConfig":{"type":"object","properties":{"keywordLimit":{"type":"integer","format":"int32","description":"提取关键词的最大数量"},"phraseLimit":{"type":"integer","format":"int32","description":"提取词组的最大数量"},"profile":{"type":"string","description":"参数集"},"stopwordId":{"type":"string","description":"指定的停用词表ID"},"userwordId":{"type":"string","description":"指定的用户词表ID"}},"title":"KeywordsConfig","description":"配置信息"},"KeywordsParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/KeywordsConfig"},"extraInfo":{"type":"string","description":"客户端信息串"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"KeywordsParams","description":"关键词提取"},"Kmeans":{"type":"object","properties":{"minAverageDistance":{"type":"number","format":"float","description":"新知识最小类内距离，取值(0,1]"},"minBatchSize":{"type":"integer","format":"int32","description":"知识挖掘算法超参数，取值[1,+∞)"},"minSentencePerCluster":{"type":"integer","format":"int32","description":"新知识点最少问题数量，取值[1,+∞)"},"sentencePerCluster":{"type":"integer","format":"int32","description":"新知识平均问题数量，取值[1,+∞)"}},"title":"Kmeans"},"LexicalAnalysisConfig":{"type":"object","properties":{"ner":{"type":"boolean","description":"是否进行命名实体识别"},"pos":{"type":"boolean","description":"是否进行分词处理"},"profile":{"type":"string","description":"参数集"},"userwordId":{"type":"string","description":"指定的用户词表ID"}},"title":"LexicalAnalysisConfig","description":"配置信息"},"LexicalAnalysisParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/LexicalAnalysisConfig"},"extraInfo":{"type":"string","description":"客户端信息串"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"LexicalAnalysisParams","description":"词法分析"},"ModelEvalCreateParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/ModelTrainConfig"},"kbPath":{"type":"string","description":"知识库文件"},"modelPath":{"type":"string","description":"语义模型"},"taskId":{"type":"string","description":"任务id"},"testSetPath":{"type":"string","description":"测试集文件"},"xtenantID":{"type":"string"}},"title":"ModelEvalCreateParam"},"ModelTrainConfig":{"type":"object","properties":{"batchSize":{"type":"integer","format":"int32","description":"训练时候的batch大小"},"evalDetail":{"type":"boolean","description":"是否输出结果"},"keepModels":{"type":"integer","format":"int32","description":"模型最大保存数量"},"learningRate":{"type":"number","format":"float","description":"学习率"},"maxEpochs":{"type":"integer","format":"int32","description":"训练时最大迭代轮数"},"notifyUrl":{"type":"string","description":"回调接口地址"},"numBatchs":{"type":"integer","format":"int32","description":"每个epoch包含的batch数量"},"saveModelStep":{"type":"integer","format":"int32","description":"每隔多少步保存一次模型"},"topN":{"type":"integer","format":"int32","description":"每条测试样本TopN 结果"}},"title":"ModelTrainConfig","description":"配置信息"},"ModelTrainInitParam":{"type":"object","properties":{"baseModelPath":{"type":"string","description":"基础模型"},"config":{"description":"配置信息","$ref":"#/definitions/ModelTrainConfig"},"kbPath":{"type":"string","description":"知识库文件"},"negativeDataPath":{"type":"string","description":"负样本训练集"},"outputPath":{"type":"string","description":"模型输出目录"},"taskId":{"type":"string","description":"任务id"},"testSetPath":{"type":"string","description":"测试集文件"},"verifySetPath":{"type":"string","description":"训练用验证集文件"},"weakDataPath":{"type":"string","description":"弱标注训练集"},"xtenantID":{"type":"string"}},"title":"ModelTrainInitParam"},"NerConfig":{"type":"object","properties":{"containTypes":{"type":"array","description":"需要检查的实体标签\n如果无此项表示检测所有支持的类别\n如果为空数组则不合法","items":{"type":"string"}}},"title":"NerConfig","description":"配置信息"},"NerParams":{"type":"object","properties":{"config":{"description":"配置","$ref":"#/definitions/NerConfig"},"extraInfo":{"type":"string","description":"客户端设置的信息串，服务器端只做记录，可以作为每次的会话id用于查询"},"text":{"type":"string","description":"待分析的文本，长度在1000字符以内。必须以UTF-8格式编码"},"xtenantID":{"type":"string"}},"title":"NerParams","description":"命名实体识别"},"Overlook":{"type":"object","properties":{"threshold":{"type":"number","format":"float","description":"忽略问题超参数，取值(0,1]"}},"title":"Overlook"},"QuestSearchInitParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"recordsPath":{"type":"string","description":"对话记录txt文件"},"sessionId":{"type":"string","description":"会话id"},"xtenantID":{"type":"string"}},"title":"QuestSearchInitParam"},"QuestSearchQueryParam":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/Config"},"query":{"type":"array","description":"输入的标准问及扩展问，标准问及扩展问不允许为空","items":{"type":"string"}},"sessionId":{"type":"string","description":"会话id"},"xtenantID":{"type":"string"}},"title":"QuestSearchQueryParam"},"Resource":{"type":"object","properties":{"content":{"type":"string"},"desc":{"type":"string"},"lang":{"type":"string"},"name":{"type":"string"}},"title":"Resource"},"Rest结果":{"type":"object","properties":{"code":{"type":"integer","format":"int32","description":"返回代码"},"msg":{"type":"string","description":"返回信息"},"result":{"type":"object","description":"结果数据"}},"title":"Rest结果"},"RosResourceParams":{"type":"object","properties":{"cu":{"type":"string"},"resId":{"type":"string"},"resource":{"$ref":"#/definitions/Resource"},"type":{"type":"string"},"userId":{"type":"string"},"xtenantID":{"type":"string"}},"title":"RosResourceParams"},"Sentence":{"type":"object","properties":{"maxLength":{"type":"integer","format":"int32","description":"聚类系数参数，取值 最大句长，取值[100, 199]"},"minLength":{"type":"integer","format":"int32","description":"聚类系数参数，最小句长，取值[1, 99]"},"roleMode":{"type":"string","description":"指定聚类角色参数可选：agent(客服)、customer(客户)、both(全部)"},"sentencesNum":{"type":"integer","format":"int32","description":"聚类系数参数，每个类别返回句子数目上限，取值范围[0,+∞)"}},"title":"Sentence"},"SummarizeParams":{"type":"object","properties":{"extraInfo":{"type":"string","description":"客户端信息串"},"resultLimit":{"type":"number","format":"float","description":"长度摘要值"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"SummarizeParams","description":"文本摘要"},"TAACCRequestParams":{"type":"object","properties":{"id":{"type":"integer","format":"int32"},"text":{"type":"array","items":{"type":"string"}},"threshold":{"type":"number","format":"float"}},"title":"TAACCRequestParams"},"TTSConfig":{"type":"object","properties":{"digitMode":{"type":"integer","format":"int32","description":"数字处理方式[0: 自动判断规则，优先数目读法,1: 自动判断规则，优先电报读法,2: 统一电报读法，3: 统一数目读法(缺省:0)]"},"extraInfo":{"type":"string","description":"用户自定义信息用于追溯"},"format":{"type":"string","description":"音频编码格式,当auto时输出为WAV文件格式，采样率由系统内部决定[auto,pcm_s16le,wav,mp3,alaw,ulaw(默认:auto)]"},"pitch":{"type":"integer","format":"int32","description":"基频，调节音调高低[(-500,500)(缺省:0)]"},"puncMode":{"type":"boolean","description":"是否读出标点符号[true,false(缺省:false)]"},"samplerate":{"type":"integer","format":"int32","description":"音频采样率,当format为 auto时，该参数无效[8000,16000,11000,44000(缺省:16000)]"},"soundEffect":{"type":"integer","format":"int32","description":"音效控制[0: 不加音效,1: 混响,2: 回声,3: 合唱,4: 忽远忽近,5: 机器人(缺省:0)]"},"speed":{"type":"integer","format":"int32","description":"语速，调节语速快慢[(-500,500)(缺省:0)]"},"useS3ML":{"type":"boolean","description":"传入文本是否是S3ML格式[true,false(缺省:false)]"},"volume":{"type":"integer","format":"int32","description":"音量，调节音量大小[(0,100)(缺省:50)]"}},"title":"TTSConfig","description":"TTS语音合成的配置信息Params"},"TTSParams":{"type":"object","properties":{"property":{"type":"string","description":"TTS模型特征串"},"short_text":{"type":"string","description":"合成文本内容"}},"title":"TTSParams","description":"TTS合成请求参数Params"},"TaskDetailParams":{"type":"object","properties":{"callBackUrl":{"type":"string","description":"回调地址"},"callId":{"type":"string","description":"当前通话的ID"},"callNumber":{"type":"string","description":"主叫号码"},"calledNumber":{"type":"string","description":"被叫号码"},"fsIp":{"type":"string","description":"Freeswitch的IP"},"fsPort":{"type":"string","description":"Freeswitch的端口"},"gateway":{"description":"外呼网关","$ref":"#/definitions/GatewayParams"},"orgCode":{"type":"integer","format":"int32","description":"租户代码"},"recordFileUrl":{"type":"string","description":"外呼背景音url"},"robotUid":{"type":"string","description":"机器人UID"},"sceneUid":{"type":"string","description":"场景UID"},"source":{"type":"integer","format":"int32","description":"来源，1外呼"},"taskUid":{"type":"string","description":"外呼任务UID"},"variables":{"type":"array","description":"外呼任务所需变量","items":{"$ref":"#/definitions/VariableParams"}}},"title":"TaskDetailParams","description":"外呼任务参数"},"TaskDetailSearchParams":{"type":"object","properties":{"callBackFlag":{"type":"integer","format":"int32","description":"回传成功标志 1成功 2失败"},"callIds":{"type":"array","description":"一通电话callId集合","items":{"type":"string"}},"endTime":{"type":"string","format":"date-time","description":"外呼时间-结束时间"},"orgCode":{"type":"integer","format":"int32","description":"租户代码"},"pageNo":{"type":"integer","format":"int32","description":"页码，默认1"},"pageSize":{"type":"integer","format":"int32","description":"每页条数，默认10"},"sceneUids":{"type":"array","description":"场景UID集合","items":{"type":"string"}},"source":{"type":"integer","format":"int32","description":"来源，1外呼"},"startTime":{"type":"string","format":"date-time","description":"外呼时间-开始时间"},"taskUids":{"type":"array","description":"外呼任务id集合","items":{"type":"string"}}},"title":"TaskDetailSearchParams","description":"外呼任务查询参数"},"TaskDetailTransferParams":{"type":"object","properties":{"callId":{"type":"string","description":"当前通话的ID"},"number":{"type":"string","description":"转接号码"},"orgCode":{"type":"integer","format":"int32","description":"租户代码"},"speechContent":{"type":"string","description":"播报话术"}},"title":"TaskDetailTransferParams","description":"外呼任务转人工参数"},"TestData":{"type":"object","properties":{"id":{"type":"string"},"mark":{"type":"integer","format":"int32"},"text":{"type":"string"}},"title":"TestData"},"TopicAnalysisParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/AapcConfig"},"extraInfo":{"type":"string","description":"客户端信息串"},"path":{"type":"string","description":"待分析的文本文件路径。文本文件必须以UTF-8格式编码。\ntext及path不能同时为空，必须二选一。"},"text":{"type":"string","description":"待分析的文本,长度在 10K 字符以内。必须以UTF-8格式编码"},"xtenantID":{"type":"string"}},"title":"TopicAnalysisParams","description":"通话主题分析"},"UserFeatureConfig":{"type":"object","properties":{"features":{"type":"array","description":"提取的特征种类，可以多个。可选值为 sex(性别), id_number(身份证号)、age（年龄）。\n如果为空，则表示全部提取","items":{"type":"string"}},"talkYear":{"type":"integer","format":"int32","description":"待识别对话的发生年份，服务根据该值推算用户年龄。\n取值为0或者(1900, 3000]。0 为默认，表示使用系统当前年份"}},"title":"UserFeatureConfig","description":"配置信息"},"UserFeatureParams":{"type":"object","properties":{"config":{"description":"配置","$ref":"#/definitions/UserFeatureConfig"},"extraInfo":{"type":"string","description":"客户端设置的信息串，服务器端只做记录，\n可将来作为定制版本的一些特殊信息"},"text":{"type":"string","description":"待分析的文本，长度在1000字符以内，如果超出此限制，只检测前1000个字符。\n必须以UTF-8格式编码"},"xtenantID":{"type":"string"}},"title":"UserFeatureParams","description":"用户特征提取"},"VariableParams":{"type":"object","properties":{"name":{"type":"string","description":"变量名"},"value":{"type":"string","description":"变量值"}},"title":"VariableParams","description":"任务变量参数"},"WordSemanticMiningConfig":{"type":"object","properties":{"layers":{"type":"integer","format":"int32","description":"词联想深度"},"profile":{"type":"string","description":"参数集"},"searchWidth":{"type":"integer","format":"int32","description":"词联想最大距离"},"userwordId":{"type":"string","description":"指定的用户词表ID"},"wordsPerLayer":{"type":"integer","format":"int32","description":"每层词联想词最大个数"}},"title":"WordSemanticMiningConfig","description":"配置信息"},"WordSemanticMiningParams":{"type":"object","properties":{"config":{"description":"配置信息","$ref":"#/definitions/WordSemanticMiningConfig"},"extraInfo":{"type":"string","description":"客户端信息串"},"keyword":{"type":"string","description":"词联想的起始关键词"},"path":{"type":"string","description":"待分析的文本文件路径"},"text":{"type":"string","description":"待分析的文本"},"xtenantID":{"type":"string"}},"title":"WordSemanticMiningParams","description":"词语义挖掘"}}}
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "V1.0",
+		"title": "智能外呼引擎服务",
+		"contact": {
+			"name": "石正福",
+			"url": "http://www.sinovoice.com",
+			"email": "shizhengfu@sinovoice.com.cn"
+		}
+	},
+	"host": "10.0.7.161:19062",
+	"basePath": "/",
+	"tags": [
+		{
+			"name": "ASR服务测试模块",
+			"description": "Asr Trans Test Controller"
+		},
+		{
+			"name": "NLP服务测试模块",
+			"description": "Nlp Test Controller"
+		},
+		{
+			"name": "NLU10e服务模块",
+			"description": "Nlu Train Test Controller"
+		},
+		{
+			"name": "NLU服务测试模块",
+			"description": "Nlu Test Controller"
+		},
+		{
+			"name": "TA服务测试模块",
+			"description": "TA Test Controller"
+		},
+		{
+			"name": "TTS服务测试模块",
+			"description": "TTS Test Controller"
+		},
+		{
+			"name": "freeTalk服务模块",
+			"description": "Free Talk Test Controller"
+		},
+		{
+			"name": "ros服务测试模块",
+			"description": "Ros Test Controller"
+		},
+		{
+			"name": "外呼引擎任务模块",
+			"description": "Task Detail Controller"
+		},
+		{
+			"name": "洗号服务测试模块",
+			"description": "Ring Test Controller"
+		}
+	],
+	"paths": {
+		"/freeTalk/recognition222": {
+			"get": {
+				"tags": [
+					"freeTalk服务模块"
+				],
+				"summary": "识别结果",
+				"operationId": "docSplitUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/aapc": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "标准话术检查接口",
+				"operationId": "docSplitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AapcParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/classify": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "文本分类",
+				"operationId": "classifyUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ClassifyParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/keywords": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "关键词提取",
+				"operationId": "keywordsUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/KeywordsParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/lexicalAnalysis": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "词法分析",
+				"operationId": "lexicalAnalysisUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/LexicalAnalysisParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/ner": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "通话主题分析",
+				"operationId": "lexicalAnalysisUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/NerParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/sentiment": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "情感分析",
+				"operationId": "analyzeAsmUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AsmParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/summarize": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "文本摘要",
+				"operationId": "summarizeUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/SummarizeParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/topicAnalysis": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "主题分析",
+				"operationId": "topicAnalysisUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TopicAnalysisParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/userFeature": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "用户特征提取",
+				"operationId": "userFeatureUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/UserFeatureParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlp-10e-test/wordSemanticMining": {
+			"post": {
+				"tags": [
+					"NLP服务测试模块"
+				],
+				"summary": "词语义挖掘",
+				"operationId": "wordSemanticMiningUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/WordSemanticMiningParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/confusionCheck": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "发起知识库混淆判断任务",
+				"operationId": "confusionCheckUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ConfusionCheckParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/confusionCheck/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "根据taskId查询混淆任务进度",
+				"operationId": "confusionCheckByTaskIdUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "根据taskId查询混淆任务进度",
+				"operationId": "confusionCheckDeleteUsingDELETE",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/confusion_search/create": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "实时混淆检查-创建任务",
+				"operationId": "confusionSearchCreateUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ConfusionSearchCreateParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/confusion_search/query": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "实时混淆检查-结果查询",
+				"operationId": "confusionSearchQueryUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ConfusionSearchQueryParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/data_mining": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "发起知识挖掘任务",
+				"operationId": "dataMiningInitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DataMiningInitParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/data_mining/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "知识挖掘-查询结果",
+				"operationId": "dataMingQueryUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/doc_reader": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "文档问答",
+				"operationId": "docReaderUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocReaderInitParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/doc_reader_init": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "发起文档问答",
+				"operationId": "docReaderInitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocReaderInitParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/doc_to_qa": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "文档拆分",
+				"operationId": "docSplitUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "request",
+						"description": "request",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DocSplitParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/doc_to_qa/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "文档拆分查询",
+				"operationId": "docQueryUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/generate_question": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "生成扩展问-发起任务",
+				"operationId": "generateQuestInitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/GenerateQuestInitParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/generate_question/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "生成扩展问-查询结果",
+				"operationId": "generateQuestQueryUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "生成扩展问-清除任务",
+				"operationId": "generateQuestDelUsingDELETE",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/license/token": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "授权服务-获取token",
+				"operationId": "tokenUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "appkey",
+						"in": "query",
+						"description": "appkey",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "secret",
+						"in": "query",
+						"description": "secret",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "url",
+						"in": "query",
+						"description": "url",
+						"required": false,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/model_eval/create": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "语义模型效果评估-任务创建",
+				"operationId": "modelEvalCreateUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ModelEvalCreateParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/model_eval/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "语义模型效果评估-任务结果查询",
+				"operationId": "modelEvalQueryUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "语义模型效果评估-任务终止",
+				"operationId": "modelEvalDelUsingDELETE",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/model_train": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "模型训练-发起任务",
+				"operationId": "modelTrainInitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ModelTrainInitParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/model_train/{taskId}": {
+			"get": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "模型训练-查询结果",
+				"operationId": "modelTrainQueryUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "模型训练-取消任务",
+				"operationId": "modelTrainDelUsingDELETE",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/question_search/init": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "实时挖掘扩展问-发起任务",
+				"operationId": "questSearchInitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QuestSearchInitParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlu-103-test/question_search/query": {
+			"post": {
+				"tags": [
+					"NLU10e服务模块"
+				],
+				"summary": "生成扩展问-查询结果",
+				"operationId": "questSearchQueryUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/QuestSearchQueryParam"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlutest/recognize": {
+			"post": {
+				"tags": [
+					"NLU服务测试模块"
+				],
+				"summary": "问答接口",
+				"operationId": "recognizeUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "question",
+						"description": "question",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "robotid",
+						"in": "query",
+						"description": "robotid",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/nlutest/tempRecognize": {
+			"post": {
+				"tags": [
+					"NLU服务测试模块"
+				],
+				"summary": "临时问答接口",
+				"operationId": "tempRecognizeUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "domain",
+						"in": "query",
+						"description": "domain",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "question",
+						"description": "question",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "sid",
+						"in": "query",
+						"description": "sid",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/ring/test/audio/formats": {
+			"get": {
+				"tags": [
+					"洗号服务测试模块"
+				],
+				"summary": "获取洗号服务模型特征串信息",
+				"operationId": "getAudioFormatsUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/ring/test/propertys": {
+			"get": {
+				"tags": [
+					"洗号服务测试模块"
+				],
+				"summary": "获取洗号服务模型特征串信息",
+				"operationId": "getRingPropertyInfosUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/rosTest/add": {
+			"post": {
+				"tags": [
+					"ros服务测试模块"
+				],
+				"summary": "添加资源",
+				"operationId": "addResourceUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RosResourceParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/rosTest/delete": {
+			"delete": {
+				"tags": [
+					"ros服务测试模块"
+				],
+				"summary": "删除资源",
+				"operationId": "deleteResourceUsingDELETE",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RosResourceParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/rosTest/update": {
+			"put": {
+				"tags": [
+					"ros服务测试模块"
+				],
+				"summary": "修改资源",
+				"operationId": "updateResourceUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RosResourceParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/task/clean": {
+			"post": {
+				"tags": [
+					"外呼引擎任务模块"
+				],
+				"summary": "外呼任务清理",
+				"operationId": "taskCleanUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TaskDetailSearchParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/task/end/{orgCode}/{callId}": {
+			"post": {
+				"tags": [
+					"外呼引擎任务模块"
+				],
+				"summary": "外呼任务结束",
+				"operationId": "taskEndUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "callId",
+						"in": "path",
+						"description": "callId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "orgCode",
+						"in": "path",
+						"description": "orgCode",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/task/search": {
+			"post": {
+				"tags": [
+					"外呼引擎任务模块"
+				],
+				"summary": "外呼任务查询",
+				"operationId": "taskSearchUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TaskDetailSearchParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/task/submit": {
+			"post": {
+				"tags": [
+					"外呼引擎任务模块"
+				],
+				"summary": "外呼任务提交",
+				"operationId": "taskSubmitUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TaskDetailParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/task/transfer": {
+			"post": {
+				"tags": [
+					"外呼引擎任务模块"
+				],
+				"summary": "外呼任务转人工",
+				"operationId": "taskTransferUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TaskDetailTransferParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/aapc": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "标准话术检测",
+				"operationId": "checkAapcUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/aapc/analyze": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "标准话术识别",
+				"operationId": "analyzeAapcUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "resourceIds",
+						"in": "query",
+						"description": "resourceIds",
+						"required": true,
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"collectionFormat": "multi"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/acc/analyze": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "通话分类识别",
+				"operationId": "analyzeAccUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TAACCRequestParams"
+						}
+					},
+					{
+						"name": "resourceId",
+						"in": "query",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/addResource": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "添加资源[aapc_model:标准话术检查模型；aer_model:规则质检模型；acc_model:通话分类模型；usr_dict:用户词库；stop_word:停用词；male_kw:男性关键词；female_kw:女性关键词；age_kw:年龄问题匹配关键词；corpus:通话语料；acc_train_model:ACC训练模型",
+				"operationId": "addResourceUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AddResourceParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/addTestTask": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "添加测试任务",
+				"operationId": "addTestTaskUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "addTestTaskParams",
+						"description": "addTestTaskParams",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AddTestTaskParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/addTrainTask": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "添加训练任务",
+				"operationId": "addTrainTaskUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "addTrainTaskParams",
+						"description": "addTrainTaskParams",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AddTrainTaskParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/aer": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "质检模型检测",
+				"operationId": "checkAerUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/aer/analyze": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "质检模型识别",
+				"operationId": "analyzeAerUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "resourceIds",
+						"in": "query",
+						"description": "resourceIds",
+						"required": true,
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"collectionFormat": "multi"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/analyzeAtpp": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "文本预处理",
+				"operationId": "analyzeAtppUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "procMode",
+						"in": "query",
+						"description": "procMode",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "resourceId",
+						"in": "query",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "textContents",
+						"description": "textContents",
+						"required": true,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/asm/analyze": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "情感分析",
+				"operationId": "analyzeAsmUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "contents",
+						"description": "contents",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/ats": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "文本摘要",
+				"operationId": "analyzeAtsUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "contents",
+						"in": "query",
+						"description": "contents",
+						"required": true,
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"collectionFormat": "multi"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/aufe/analyze": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "用户特征提取",
+				"operationId": "analyzeAufeUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ageKw",
+						"in": "query",
+						"description": "ageKw",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "contents",
+						"in": "query",
+						"description": "contents",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "femaleKw",
+						"in": "query",
+						"description": "femaleKw",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "maleKw",
+						"in": "query",
+						"description": "maleKw",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "year",
+						"in": "query",
+						"description": "year",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/clustering": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "通话主题分析（聚类）",
+				"operationId": "clusteringUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "actNumCluster",
+						"in": "query",
+						"description": "actNumCluster",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "actNumKeyword",
+						"in": "query",
+						"description": "actNumKeyword",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"in": "body",
+						"name": "contents",
+						"description": "contents",
+						"required": true,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/delete/{resourceId}": {
+			"delete": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "删除资源",
+				"operationId": "deleteResourceUsingDELETE_1",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "resourceId",
+						"in": "path",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "version",
+						"in": "query",
+						"description": "version",
+						"required": false,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/deleteTrainTask": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "删除训练任务",
+				"operationId": "deleteTrainTaskUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "trainNo",
+						"description": "trainNo",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/detail/{resourceId}": {
+			"get": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "获取资源详细信息",
+				"operationId": "downloadResourceUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "resourceId",
+						"in": "path",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "version",
+						"in": "query",
+						"description": "version",
+						"required": false,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/info/{resourceId}": {
+			"get": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "获取资源元信息",
+				"operationId": "getResourceInfoUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "resourceId",
+						"in": "path",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "version",
+						"in": "query",
+						"description": "version",
+						"required": false,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/keywordAnalysis": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "关键词分析",
+				"operationId": "keywordAnalysisUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "akeKpNum",
+						"in": "query",
+						"description": "akeKpNum",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "akeKwNum",
+						"in": "query",
+						"description": "akeKwNum",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "stopWordResourceId",
+						"in": "query",
+						"description": "stopWordResourceId",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "textWords",
+						"description": "textWords",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/searchNewWord": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "新词发现功能(同步识别)",
+				"operationId": "searchNewWordUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "maxWordLength",
+						"in": "query",
+						"description": "maxWordLength",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"in": "body",
+						"name": "text",
+						"description": "text",
+						"required": true,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					},
+					{
+						"name": "userWordResourceId",
+						"in": "query",
+						"description": "userWordResourceId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/searchTestTask": {
+			"get": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "查询测试任务",
+				"operationId": "searchTestTaskUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "test_no",
+						"in": "query",
+						"description": "test_no",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/searchTrainTask": {
+			"get": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "查询训练任务状态",
+				"operationId": "searchTrainTaskUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "train_no",
+						"in": "query",
+						"description": "train_no",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/update/{resourceId}": {
+			"put": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "更新资源",
+				"operationId": "updateResourceUsingPUT_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "resourceId",
+						"in": "path",
+						"description": "resourceId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/wordsAssociate": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "词联想功能",
+				"operationId": "wordsAssociateUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "awsmKeyword",
+						"in": "query",
+						"description": "awsmKeyword",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "numLayers",
+						"in": "query",
+						"description": "numLayers",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "numWpl",
+						"in": "query",
+						"description": "numWpl",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"in": "body",
+						"name": "text",
+						"description": "text",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tatest/{type}/add": {
+			"post": {
+				"tags": [
+					"TA服务测试模块"
+				],
+				"summary": "添加资源[aapc_model:标准话术检查模型；aer_model:规则质检模型；acc_model:通话分类模型；usr_dict:用户词库；stop_word:停用词；male_kw:男性关键词；female_kw:女性关键词；age_kw:年龄问题匹配关键词；corpus:通话语料；acc_train_model:ACC训练模型",
+				"operationId": "addResourceUsingPOST_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "content",
+						"description": "content",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "type",
+						"in": "path",
+						"description": "type",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/callback": {
+			"post": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.9 回调通知9x",
+				"operationId": "callbackUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ASR9xTransCallbackParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/callback10c": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.8 回调通知10c",
+				"operationId": "callBackUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "save_status",
+						"in": "query",
+						"description": "save_status",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "task",
+						"in": "query",
+						"description": "task",
+						"required": false,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/cancelTask": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.4 任务取消",
+				"operationId": "cancelTaskUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/download": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.5 结果下载",
+				"operationId": "downloadUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/listProperties": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.1 模型查询",
+				"operationId": "listPropertiesUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/queryStatus": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.6 队列状态",
+				"operationId": "queryStatusUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/queryTask/{taskId}": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.3 任务查询",
+				"operationId": "queryTaskUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "taskId",
+						"in": "path",
+						"description": "taskId",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/restartTask": {
+			"get": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.7 重启任务",
+				"operationId": "restartTaskUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/trans/test/submitTask": {
+			"post": {
+				"tags": [
+					"ASR服务测试模块"
+				],
+				"summary": "3.2 任务提交",
+				"operationId": "submitTaskUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "testRequest",
+						"description": "testRequest",
+						"required": true,
+						"schema": {
+							"type": "object"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tts/test/propertys": {
+			"get": {
+				"tags": [
+					"TTS服务测试模块"
+				],
+				"summary": "获取TTS模型特征串信息",
+				"operationId": "getTTSPropertyInfosUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/Rest结果"
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/tts/test/{accessToken}": {
+			"post": {
+				"tags": [
+					"TTS服务测试模块"
+				],
+				"summary": "提交合成TTS内容[wav格式]",
+				"operationId": "submitTextTestUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "accessToken",
+						"in": "path",
+						"description": "accessToken",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "config",
+						"description": "config",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TTSConfig"
+						}
+					},
+					{
+						"in": "body",
+						"name": "params",
+						"description": "params",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TTSParams"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"ASR9xTransCallbackParams": {
+			"type": "object",
+			"properties": {
+				"failed_count": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"finished_count": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"res_code": {
+					"type": "string"
+				},
+				"res_msg": {
+					"type": "string"
+				},
+				"status_list": {
+					"type": "array",
+					"items": {
+						"type": "object"
+					}
+				},
+				"succeeded_count": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"task_no": {
+					"type": "string"
+				},
+				"total_count": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "ASR9xTransCallbackParams"
+		},
+		"AapcConfig": {
+			"type": "object",
+			"properties": {
+				"actlabelId": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"call": {
+					"description": "模式参数",
+					"$ref": "#/definitions/Call"
+				},
+				"clusterEfficient": {
+					"type": "number",
+					"format": "float",
+					"description": "聚类系数参数，取值 [0, 1]"
+				},
+				"detail": {
+					"type": "boolean",
+					"description": "输出结果中是否包含对应的原始文本内容"
+				},
+				"mode": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"profile": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"sentence": {
+					"description": "模式参数",
+					"$ref": "#/definitions/Sentence"
+				},
+				"similarThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "相似度阈值参数，取值 [0, 1]"
+				},
+				"stopwordId": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"trickIds": {
+					"type": "array",
+					"description": "话术ID 列表",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"title": "AapcConfig",
+			"description": "配置信息"
+		},
+		"AapcParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/AapcConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "AapcParams",
+			"description": "标准话术检查"
+		},
+		"AddResourceParams": {
+			"type": "object",
+			"properties": {
+				"compress": {
+					"type": "string"
+				},
+				"crc64": {
+					"type": "string"
+				},
+				"data": {
+					"type": "string"
+				},
+				"dataUrl": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				}
+			},
+			"title": "AddResourceParams"
+		},
+		"AddTestTaskParams": {
+			"type": "object",
+			"properties": {
+				"enable_notify": {
+					"type": "boolean"
+				},
+				"notify_url": {
+					"type": "string"
+				},
+				"test_data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/TestData"
+					}
+				},
+				"thresholds": {
+					"type": "number",
+					"format": "double"
+				},
+				"train_no": {
+					"type": "string"
+				}
+			},
+			"title": "AddTestTaskParams"
+		},
+		"AddTrainTaskParams": {
+			"type": "object",
+			"properties": {
+				"enable_notify": {
+					"type": "boolean"
+				},
+				"notify_url": {
+					"type": "string"
+				},
+				"num_train_epochs": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"train_data_url": {
+					"type": "string"
+				}
+			},
+			"title": "AddTrainTaskParams"
+		},
+		"AsmParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "AsmParams",
+			"description": "情感分析接口"
+		},
+		"Call": {
+			"type": "object",
+			"properties": {
+				"keywordsNum": {
+					"type": "integer",
+					"format": "int32",
+					"description": "输出结果中是否包含对应的原始文本内容"
+				}
+			},
+			"title": "Call"
+		},
+		"ClassifyParams": {
+			"type": "object",
+			"properties": {
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端设置的信息串，服务器端只做记录，\n可将来作为定制版本的一些特殊信息"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本，长度在1000字符以内，如果超出此限制，只检测前1000个字符。\n必须以UTF-8格式编码"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ClassifyParams",
+			"description": "文本分类"
+		},
+		"Config": {
+			"type": "object",
+			"properties": {
+				"batchSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "计算batch大小，取值[1, +∞)，默认32"
+				},
+				"docBufferLength": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"kbmining": {
+					"description": "挖掘扩展问相关配置",
+					"$ref": "#/definitions/KbMining"
+				},
+				"kmeans": {
+					"description": "挖掘扩展问相关配置",
+					"$ref": "#/definitions/Kmeans"
+				},
+				"maxAnswerLength": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"maxKeepThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "挖掘扩展问的相似度上限，取值(0,1]，默认值0.99"
+				},
+				"maxResultCount": {
+					"type": "integer",
+					"format": "int64",
+					"description": "挖掘扩展问数量上限，取值[0,+∞)"
+				},
+				"minKeepThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "挖掘扩展问的相似度下限，取值(0,1]"
+				},
+				"modelPath": {
+					"type": "string",
+					"description": "模型目录路径，缺省为空，表示使用系统默认"
+				},
+				"nbest": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"notifyUrl": {
+					"type": "string",
+					"description": "回调地址"
+				},
+				"overlook": {
+					"description": "忽略问题相关配置",
+					"$ref": "#/definitions/Overlook"
+				},
+				"sessionId": {
+					"type": "string",
+					"description": "会话id"
+				},
+				"threshold": {
+					"type": "number",
+					"format": "float",
+					"description": "相似度的最小阈值，取值[0.8, 1.0]，默认0.9"
+				},
+				"topBeams": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每个标准问生成的扩展问最大个数，取值[1,+∞)，缺省30"
+				},
+				"topN": {
+					"type": "integer",
+					"format": "int32",
+					"description": "返回结果数量上限"
+				},
+				"weightPath": {
+					"type": "string",
+					"description": "权重文件路径，为空表示使用系统默认"
+				}
+			},
+			"title": "Config"
+		},
+		"ConfusionCheckParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"kbPath": {
+					"type": "string",
+					"description": "混淆判断用的知识库文件"
+				},
+				"modelPath": {
+					"type": "string",
+					"description": "模型所在目录路径"
+				},
+				"taskId": {
+					"type": "string",
+					"description": "任务uid"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ConfusionCheckParam"
+		},
+		"ConfusionSearchCreateParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"kbPath": {
+					"type": "string",
+					"description": "知识库文件路径"
+				},
+				"modelPath": {
+					"type": "string",
+					"description": "模型文件路径"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ConfusionSearchCreateParam"
+		},
+		"ConfusionSearchQueryParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"query": {
+					"type": "string",
+					"description": "输入的问题"
+				},
+				"sessionId": {
+					"type": "string",
+					"description": "会话id"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ConfusionSearchQueryParam"
+		},
+		"DataMiningInitParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置",
+					"$ref": "#/definitions/Config"
+				},
+				"kbPath": {
+					"type": "string",
+					"description": "当前知识库文件mjsn文件"
+				},
+				"overlookPath": {
+					"type": "string",
+					"description": "忽略问题txt文件"
+				},
+				"recordsPath": {
+					"type": "string",
+					"description": "对话记录txt文件"
+				},
+				"taskId": {
+					"type": "string",
+					"description": "任务id"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "DataMiningInitParams"
+		},
+		"DocReaderInitParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"$ref": "#/definitions/Config"
+				},
+				"path": {
+					"type": "string"
+				},
+				"query": {
+					"type": "string"
+				},
+				"sessionId": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "DocReaderInitParams"
+		},
+		"DocSplitParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"$ref": "#/definitions/Config"
+				},
+				"path": {
+					"type": "string"
+				},
+				"taskId": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "DocSplitParams"
+		},
+		"GatewayParams": {
+			"type": "object",
+			"properties": {
+				"ip": {
+					"type": "string",
+					"description": "网关ip"
+				},
+				"name": {
+					"type": "string",
+					"description": "网关名称"
+				},
+				"port": {
+					"type": "integer",
+					"format": "int32",
+					"description": "网关端口"
+				}
+			},
+			"title": "GatewayParams",
+			"description": "网关参数"
+		},
+		"GenerateQuestInitParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置",
+					"$ref": "#/definitions/Config"
+				},
+				"questions": {
+					"type": "array",
+					"description": "需要生成扩展问的标准问",
+					"items": {
+						"type": "string"
+					}
+				},
+				"taskId": {
+					"type": "string",
+					"description": "任务id"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "GenerateQuestInitParams"
+		},
+		"KbMining": {
+			"type": "object",
+			"properties": {
+				"discardThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "挖掘扩展问的相似度上限，取值(0,1]"
+				},
+				"maxKeepThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "挖掘扩展问的抛弃相似度下限，取值(0,1]"
+				},
+				"minKeepCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "挖掘问题高于此数量才会被保留，取值[1,+)"
+				},
+				"minKeepThreshold": {
+					"type": "number",
+					"format": "float",
+					"description": "挖掘扩展问的相似度下限，取值(0,1]"
+				}
+			},
+			"title": "KbMining"
+		},
+		"KeywordsConfig": {
+			"type": "object",
+			"properties": {
+				"keywordLimit": {
+					"type": "integer",
+					"format": "int32",
+					"description": "提取关键词的最大数量"
+				},
+				"phraseLimit": {
+					"type": "integer",
+					"format": "int32",
+					"description": "提取词组的最大数量"
+				},
+				"profile": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"stopwordId": {
+					"type": "string",
+					"description": "指定的停用词表ID"
+				},
+				"userwordId": {
+					"type": "string",
+					"description": "指定的用户词表ID"
+				}
+			},
+			"title": "KeywordsConfig",
+			"description": "配置信息"
+		},
+		"KeywordsParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/KeywordsConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "KeywordsParams",
+			"description": "关键词提取"
+		},
+		"Kmeans": {
+			"type": "object",
+			"properties": {
+				"minAverageDistance": {
+					"type": "number",
+					"format": "float",
+					"description": "新知识最小类内距离，取值(0,1]"
+				},
+				"minBatchSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "知识挖掘算法超参数，取值[1,+∞)"
+				},
+				"minSentencePerCluster": {
+					"type": "integer",
+					"format": "int32",
+					"description": "新知识点最少问题数量，取值[1,+∞)"
+				},
+				"sentencePerCluster": {
+					"type": "integer",
+					"format": "int32",
+					"description": "新知识平均问题数量，取值[1,+∞)"
+				}
+			},
+			"title": "Kmeans"
+		},
+		"LexicalAnalysisConfig": {
+			"type": "object",
+			"properties": {
+				"ner": {
+					"type": "boolean",
+					"description": "是否进行命名实体识别"
+				},
+				"pos": {
+					"type": "boolean",
+					"description": "是否进行分词处理"
+				},
+				"profile": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"userwordId": {
+					"type": "string",
+					"description": "指定的用户词表ID"
+				}
+			},
+			"title": "LexicalAnalysisConfig",
+			"description": "配置信息"
+		},
+		"LexicalAnalysisParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/LexicalAnalysisConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "LexicalAnalysisParams",
+			"description": "词法分析"
+		},
+		"ModelEvalCreateParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/ModelTrainConfig"
+				},
+				"kbPath": {
+					"type": "string",
+					"description": "知识库文件"
+				},
+				"modelPath": {
+					"type": "string",
+					"description": "语义模型"
+				},
+				"taskId": {
+					"type": "string",
+					"description": "任务id"
+				},
+				"testSetPath": {
+					"type": "string",
+					"description": "测试集文件"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ModelEvalCreateParam"
+		},
+		"ModelTrainConfig": {
+			"type": "object",
+			"properties": {
+				"batchSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "训练时候的batch大小"
+				},
+				"evalDetail": {
+					"type": "boolean",
+					"description": "是否输出结果"
+				},
+				"keepModels": {
+					"type": "integer",
+					"format": "int32",
+					"description": "模型最大保存数量"
+				},
+				"learningRate": {
+					"type": "number",
+					"format": "float",
+					"description": "学习率"
+				},
+				"maxEpochs": {
+					"type": "integer",
+					"format": "int32",
+					"description": "训练时最大迭代轮数"
+				},
+				"notifyUrl": {
+					"type": "string",
+					"description": "回调接口地址"
+				},
+				"numBatchs": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每个epoch包含的batch数量"
+				},
+				"saveModelStep": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每隔多少步保存一次模型"
+				},
+				"topN": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每条测试样本TopN 结果"
+				}
+			},
+			"title": "ModelTrainConfig",
+			"description": "配置信息"
+		},
+		"ModelTrainInitParam": {
+			"type": "object",
+			"properties": {
+				"baseModelPath": {
+					"type": "string",
+					"description": "基础模型"
+				},
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/ModelTrainConfig"
+				},
+				"kbPath": {
+					"type": "string",
+					"description": "知识库文件"
+				},
+				"negativeDataPath": {
+					"type": "string",
+					"description": "负样本训练集"
+				},
+				"outputPath": {
+					"type": "string",
+					"description": "模型输出目录"
+				},
+				"taskId": {
+					"type": "string",
+					"description": "任务id"
+				},
+				"testSetPath": {
+					"type": "string",
+					"description": "测试集文件"
+				},
+				"verifySetPath": {
+					"type": "string",
+					"description": "训练用验证集文件"
+				},
+				"weakDataPath": {
+					"type": "string",
+					"description": "弱标注训练集"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "ModelTrainInitParam"
+		},
+		"NerConfig": {
+			"type": "object",
+			"properties": {
+				"containTypes": {
+					"type": "array",
+					"description": "需要检查的实体标签\n如果无此项表示检测所有支持的类别\n如果为空数组则不合法",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"title": "NerConfig",
+			"description": "配置信息"
+		},
+		"NerParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置",
+					"$ref": "#/definitions/NerConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端设置的信息串，服务器端只做记录，可以作为每次的会话id用于查询"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本，长度在1000字符以内。必须以UTF-8格式编码"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "NerParams",
+			"description": "命名实体识别"
+		},
+		"Overlook": {
+			"type": "object",
+			"properties": {
+				"threshold": {
+					"type": "number",
+					"format": "float",
+					"description": "忽略问题超参数，取值(0,1]"
+				}
+			},
+			"title": "Overlook"
+		},
+		"QuestSearchInitParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"recordsPath": {
+					"type": "string",
+					"description": "对话记录txt文件"
+				},
+				"sessionId": {
+					"type": "string",
+					"description": "会话id"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "QuestSearchInitParam"
+		},
+		"QuestSearchQueryParam": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/Config"
+				},
+				"query": {
+					"type": "array",
+					"description": "输入的标准问及扩展问，标准问及扩展问不允许为空",
+					"items": {
+						"type": "string"
+					}
+				},
+				"sessionId": {
+					"type": "string",
+					"description": "会话id"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "QuestSearchQueryParam"
+		},
+		"Resource": {
+			"type": "object",
+			"properties": {
+				"content": {
+					"type": "string"
+				},
+				"desc": {
+					"type": "string"
+				},
+				"lang": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				}
+			},
+			"title": "Resource"
+		},
+		"Rest结果": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32",
+					"description": "返回代码"
+				},
+				"msg": {
+					"type": "string",
+					"description": "返回信息"
+				},
+				"result": {
+					"type": "object",
+					"description": "结果数据"
+				}
+			},
+			"title": "Rest结果"
+		},
+		"RosResourceParams": {
+			"type": "object",
+			"properties": {
+				"cu": {
+					"type": "string"
+				},
+				"resId": {
+					"type": "string"
+				},
+				"resource": {
+					"$ref": "#/definitions/Resource"
+				},
+				"type": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "string"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "RosResourceParams"
+		},
+		"Sentence": {
+			"type": "object",
+			"properties": {
+				"maxLength": {
+					"type": "integer",
+					"format": "int32",
+					"description": "聚类系数参数，取值 最大句长，取值[100, 199]"
+				},
+				"minLength": {
+					"type": "integer",
+					"format": "int32",
+					"description": "聚类系数参数，最小句长，取值[1, 99]"
+				},
+				"roleMode": {
+					"type": "string",
+					"description": "指定聚类角色参数可选：agent(客服)、customer(客户)、both(全部)"
+				},
+				"sentencesNum": {
+					"type": "integer",
+					"format": "int32",
+					"description": "聚类系数参数，每个类别返回句子数目上限，取值范围[0,+∞)"
+				}
+			},
+			"title": "Sentence"
+		},
+		"SummarizeParams": {
+			"type": "object",
+			"properties": {
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"resultLimit": {
+					"type": "number",
+					"format": "float",
+					"description": "长度摘要值"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "SummarizeParams",
+			"description": "文本摘要"
+		},
+		"TAACCRequestParams": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"text": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"threshold": {
+					"type": "number",
+					"format": "float"
+				}
+			},
+			"title": "TAACCRequestParams"
+		},
+		"TTSConfig": {
+			"type": "object",
+			"properties": {
+				"digitMode": {
+					"type": "integer",
+					"format": "int32",
+					"description": "数字处理方式[0: 自动判断规则，优先数目读法,1: 自动判断规则，优先电报读法,2: 统一电报读法，3: 统一数目读法(缺省:0)]"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "用户自定义信息用于追溯"
+				},
+				"format": {
+					"type": "string",
+					"description": "音频编码格式,当auto时输出为WAV文件格式，采样率由系统内部决定[auto,pcm_s16le,wav,mp3,alaw,ulaw(默认:auto)]"
+				},
+				"pitch": {
+					"type": "integer",
+					"format": "int32",
+					"description": "基频，调节音调高低[(-500,500)(缺省:0)]"
+				},
+				"puncMode": {
+					"type": "boolean",
+					"description": "是否读出标点符号[true,false(缺省:false)]"
+				},
+				"samplerate": {
+					"type": "integer",
+					"format": "int32",
+					"description": "音频采样率,当format为 auto时，该参数无效[8000,16000,11000,44000(缺省:16000)]"
+				},
+				"soundEffect": {
+					"type": "integer",
+					"format": "int32",
+					"description": "音效控制[0: 不加音效,1: 混响,2: 回声,3: 合唱,4: 忽远忽近,5: 机器人(缺省:0)]"
+				},
+				"speed": {
+					"type": "integer",
+					"format": "int32",
+					"description": "语速，调节语速快慢[(-500,500)(缺省:0)]"
+				},
+				"useS3ML": {
+					"type": "boolean",
+					"description": "传入文本是否是S3ML格式[true,false(缺省:false)]"
+				},
+				"volume": {
+					"type": "integer",
+					"format": "int32",
+					"description": "音量，调节音量大小[(0,100)(缺省:50)]"
+				}
+			},
+			"title": "TTSConfig",
+			"description": "TTS语音合成的配置信息Params"
+		},
+		"TTSParams": {
+			"type": "object",
+			"properties": {
+				"property": {
+					"type": "string",
+					"description": "TTS模型特征串"
+				},
+				"short_text": {
+					"type": "string",
+					"description": "合成文本内容"
+				}
+			},
+			"title": "TTSParams",
+			"description": "TTS合成请求参数Params"
+		},
+		"TaskDetailParams": {
+			"type": "object",
+			"properties": {
+				"callBackUrl": {
+					"type": "string",
+					"description": "回调地址"
+				},
+				"callId": {
+					"type": "string",
+					"description": "当前通话的ID"
+				},
+				"callNumber": {
+					"type": "string",
+					"description": "主叫号码"
+				},
+				"calledNumber": {
+					"type": "string",
+					"description": "被叫号码"
+				},
+				"fsIp": {
+					"type": "string",
+					"description": "Freeswitch的IP"
+				},
+				"fsPort": {
+					"type": "string",
+					"description": "Freeswitch的端口"
+				},
+				"gateway": {
+					"description": "外呼网关",
+					"$ref": "#/definitions/GatewayParams"
+				},
+				"orgCode": {
+					"type": "integer",
+					"format": "int32",
+					"description": "租户代码"
+				},
+				"recordFileUrl": {
+					"type": "string",
+					"description": "外呼背景音url"
+				},
+				"robotUid": {
+					"type": "string",
+					"description": "机器人UID"
+				},
+				"sceneUid": {
+					"type": "string",
+					"description": "场景UID"
+				},
+				"source": {
+					"type": "integer",
+					"format": "int32",
+					"description": "来源，1外呼"
+				},
+				"taskUid": {
+					"type": "string",
+					"description": "外呼任务UID"
+				},
+				"variables": {
+					"type": "array",
+					"description": "外呼任务所需变量",
+					"items": {
+						"$ref": "#/definitions/VariableParams"
+					}
+				}
+			},
+			"title": "TaskDetailParams",
+			"description": "外呼任务参数"
+		},
+		"TaskDetailSearchParams": {
+			"type": "object",
+			"properties": {
+				"callBackFlag": {
+					"type": "integer",
+					"format": "int32",
+					"description": "回传成功标志 1成功 2失败"
+				},
+				"callIds": {
+					"type": "array",
+					"description": "一通电话callId集合",
+					"items": {
+						"type": "string"
+					}
+				},
+				"endTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": "外呼时间-结束时间"
+				},
+				"orgCode": {
+					"type": "integer",
+					"format": "int32",
+					"description": "租户代码"
+				},
+				"pageNo": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码，默认1"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每页条数，默认10"
+				},
+				"sceneUids": {
+					"type": "array",
+					"description": "场景UID集合",
+					"items": {
+						"type": "string"
+					}
+				},
+				"source": {
+					"type": "integer",
+					"format": "int32",
+					"description": "来源，1外呼"
+				},
+				"startTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": "外呼时间-开始时间"
+				},
+				"taskUids": {
+					"type": "array",
+					"description": "外呼任务id集合",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"title": "TaskDetailSearchParams",
+			"description": "外呼任务查询参数"
+		},
+		"TaskDetailTransferParams": {
+			"type": "object",
+			"properties": {
+				"callId": {
+					"type": "string",
+					"description": "当前通话的ID"
+				},
+				"number": {
+					"type": "string",
+					"description": "转接号码"
+				},
+				"orgCode": {
+					"type": "integer",
+					"format": "int32",
+					"description": "租户代码"
+				},
+				"speechContent": {
+					"type": "string",
+					"description": "播报话术"
+				}
+			},
+			"title": "TaskDetailTransferParams",
+			"description": "外呼任务转人工参数"
+		},
+		"TestData": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"mark": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"text": {
+					"type": "string"
+				}
+			},
+			"title": "TestData"
+		},
+		"TopicAnalysisParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/AapcConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"path": {
+					"type": "string",
+					"description": "待分析的文本文件路径。文本文件必须以UTF-8格式编码。\ntext及path不能同时为空，必须二选一。"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本,长度在 10K 字符以内。必须以UTF-8格式编码"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "TopicAnalysisParams",
+			"description": "通话主题分析"
+		},
+		"UserFeatureConfig": {
+			"type": "object",
+			"properties": {
+				"features": {
+					"type": "array",
+					"description": "提取的特征种类，可以多个。可选值为 sex(性别), id_number(身份证号)、age（年龄）。\n如果为空，则表示全部提取",
+					"items": {
+						"type": "string"
+					}
+				},
+				"talkYear": {
+					"type": "integer",
+					"format": "int32",
+					"description": "待识别对话的发生年份，服务根据该值推算用户年龄。\n取值为0或者(1900, 3000]。0 为默认，表示使用系统当前年份"
+				}
+			},
+			"title": "UserFeatureConfig",
+			"description": "配置信息"
+		},
+		"UserFeatureParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置",
+					"$ref": "#/definitions/UserFeatureConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端设置的信息串，服务器端只做记录，\n可将来作为定制版本的一些特殊信息"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本，长度在1000字符以内，如果超出此限制，只检测前1000个字符。\n必须以UTF-8格式编码"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "UserFeatureParams",
+			"description": "用户特征提取"
+		},
+		"VariableParams": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string",
+					"description": "变量名"
+				},
+				"value": {
+					"type": "string",
+					"description": "变量值"
+				}
+			},
+			"title": "VariableParams",
+			"description": "任务变量参数"
+		},
+		"WordSemanticMiningConfig": {
+			"type": "object",
+			"properties": {
+				"layers": {
+					"type": "integer",
+					"format": "int32",
+					"description": "词联想深度"
+				},
+				"profile": {
+					"type": "string",
+					"description": "参数集"
+				},
+				"searchWidth": {
+					"type": "integer",
+					"format": "int32",
+					"description": "词联想最大距离"
+				},
+				"userwordId": {
+					"type": "string",
+					"description": "指定的用户词表ID"
+				},
+				"wordsPerLayer": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每层词联想词最大个数"
+				}
+			},
+			"title": "WordSemanticMiningConfig",
+			"description": "配置信息"
+		},
+		"WordSemanticMiningParams": {
+			"type": "object",
+			"properties": {
+				"config": {
+					"description": "配置信息",
+					"$ref": "#/definitions/WordSemanticMiningConfig"
+				},
+				"extraInfo": {
+					"type": "string",
+					"description": "客户端信息串"
+				},
+				"keyword": {
+					"type": "string",
+					"description": "词联想的起始关键词"
+				},
+				"path": {
+					"type": "string",
+					"description": "待分析的文本文件路径"
+				},
+				"text": {
+					"type": "string",
+					"description": "待分析的文本"
+				},
+				"xtenantID": {
+					"type": "string"
+				}
+			},
+			"title": "WordSemanticMiningParams",
+			"description": "词语义挖掘"
+		}
+	}
+}
