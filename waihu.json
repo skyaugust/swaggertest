@@ -145,7 +145,7 @@
 				"deprecated": false
 			}
 		},
-		"/nlp-10e-test/keywords": {
+		"/nlp-10e-test/testkeywords": {
 			"post": {
 				"tags": [
 					"NLP服务测试模块"
