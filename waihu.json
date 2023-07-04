@@ -215,7 +215,7 @@
 				"deprecated": false
 			}
 		},
-		"/nlp-10e-test/ner": {
+		"/nlp-10e-test/nefffr": {
 			"post": {
 				"tags": [
 					"NLP服务测试模块"
