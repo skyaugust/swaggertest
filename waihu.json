@@ -54,7 +54,7 @@
 		}
 	],
 	"paths": {
-		"/freeTalk/recognition222": {
+		"/freeTalk/recognition222333": {
 			"get": {
 				"tags": [
 					"freeTalk服务模块"
